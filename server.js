@@ -11,8 +11,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.post('/send-email', (req, res) => {
-    const { answers } = req.body;
-    console.log(answers)
+  const { firstName, lastName, apartment, email, answers } = req.body;
+
     // TODO: Set up your email configuration
     const transporter = nodemailer.createTransport({
       service: 'Gmail',
@@ -26,7 +26,7 @@ app.post('/send-email', (req, res) => {
       from: 'YOUR_EMAIL_ADDRESS',
       to: 'bdcamillesaintsaens3f@gmail.com',
       subject: 'Questionnaire Results',
-      text: answers.join('\n'),
+      text: `Prénom: ${firstName}\n Nom: ${lastName}\nAppartement: ${apartment}\nEmail: ${email}\n Réponse:\n${answers.join('\n')}`,
     };
   
     transporter.sendMail(mailOptions, (error, info) => {
