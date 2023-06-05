@@ -46,5 +46,5 @@ app.listen(PORT, () => {
 });
 
 app.get('/', (req, res) => {
-  res.status(200).send('3F Quiz app backend API v1');
+  res.status(200).send('3F Quiz app backend API v1 ');
 });
