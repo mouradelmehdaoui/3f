@@ -44,3 +44,7 @@ const port = 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+app.get('/', (req, res) => {
+  res.status(200).send('3F Quiz app backend API v1');
+});
